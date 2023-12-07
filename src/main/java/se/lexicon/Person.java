@@ -60,7 +60,7 @@ public class Person {
             borrowedBooks = Arrays.copyOf(borrowedBooks, 1);
             borrowedBooks[0] = book;
         } else {
-            borrowedBooks = Arrays.copyOf(borrowedBooks, borrowedBooks.length);
+            borrowedBooks = Arrays.copyOf(borrowedBooks, borrowedBooks.length + 1);
             borrowedBooks[borrowedBooks.length - 1] = book;
         }
     }

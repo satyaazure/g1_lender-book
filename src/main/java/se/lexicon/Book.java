@@ -5,6 +5,14 @@ public class Book {
 
     private String author;
     private boolean available;
+    private Person borrower;
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
+    }
+
+    public Book() {
+    }
 
     public String getTitle() {
         return title;

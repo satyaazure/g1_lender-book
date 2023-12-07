@@ -1,22 +1,19 @@
 package se.lexicon;
 
+import java.util.Arrays;
+
 public class Person {
-    private static int personId;
+    private static final IdGenerator generator = new IdGenerator();
+    private final int personId;
     private String firstName;
     private String lastName;
     private Book book;
-    private String[] borrowedBooks= {};
-
-
-
-
+    private Book[] borrowedBooks= {};
 
     public Person (String firstName, String lastName){
         setFirstName(firstName);
         setLastName(lastName);
-
-        IdGenerator generator = new IdGenerator();
-        this.personId= generator.generateId();
+        personId = generator.generateId();
     }
 
     public Book getBook() {
@@ -30,8 +27,6 @@ public class Person {
     public int getPersonId() {
         return personId;
     }
-
-
 
     public String getFirstName() {
         return firstName;
@@ -49,21 +44,24 @@ public class Person {
         this.lastName = lastName;
     }
     public void loanBook(Book book){
-        if(book.getBorrower()==null){
+        if(book.isAvailable()){
             this.book = book;
             book.setBorrower(this);
-            System.out.println(firstName+" "+lastName+"Borrowed the book");
+            addToBorrowedBooks(book);
+            System.out.println(firstName+" "+lastName+" borrowed the book: " + book.getTitle());
         }
         else {
-            System.out.println(firstName+" "+lastName+"cannot borrow book");
+            System.out.println("Book is not available: " + book.getTitle());
         }
-        if(borrowedBooks.)
-
-
     }
-    public String displayBooks (){
 
-
-
+    private void addToBorrowedBooks(Book book) {
+        if (borrowedBooks.length == 0) {
+            borrowedBooks = Arrays.copyOf(borrowedBooks, 1);
+            borrowedBooks[0] = book;
+        } else {
+            borrowedBooks = Arrays.copyOf(borrowedBooks, borrowedBooks.length);
+            borrowedBooks[borrowedBooks.length - 1] = book;
+        }
     }
 }

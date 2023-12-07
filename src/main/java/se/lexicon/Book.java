@@ -2,17 +2,14 @@ package se.lexicon;
 
 public class Book {
     private String title;
-
     private String author;
     private boolean available;
     private Person borrower;
+
     public Book(String title, String author) {
         this.title = title;
         this.author = author;
         setAvailable(true);
-    }
-
-    public Book() {
     }
 
     public Person getBorrower() {
@@ -27,7 +24,6 @@ public class Book {
         else {
             System.out.println("book is not available");
         }
-
     }
 
     public String getTitle() {

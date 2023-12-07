@@ -20,6 +20,11 @@ public class Main {
         Person person1= new Person("christian","myren");
         Person person2= new Person("satya","bindu");
         System.out.println("person1 = " + person1.getFirstName());
+        person2.loanBook(books[3]);
+        System.out.println(books[3].getBorrower().getFirstName());
+
+
+
 
 
 

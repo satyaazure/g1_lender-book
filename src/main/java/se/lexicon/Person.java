@@ -5,6 +5,11 @@ public class Person {
     private String firstName;
     private String lastName;
     private Book book;
+    private String[] borrowedBooks= {};
+
+
+
+
 
     public Person (String firstName, String lastName){
         setFirstName(firstName);
@@ -43,7 +48,22 @@ public class Person {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    public void  loanBook(Book book){
+    public void loanBook(Book book){
+        if(book.getBorrower()==null){
+            this.book = book;
+            book.setBorrower(this);
+            System.out.println(firstName+" "+lastName+"Borrowed the book");
+        }
+        else {
+            System.out.println(firstName+" "+lastName+"cannot borrow book");
+        }
+        if(borrowedBooks.)
+
+
+    }
+    public String displayBooks (){
+
+
 
     }
 }

@@ -9,9 +9,25 @@ public class Book {
     public Book(String title, String author) {
         this.title = title;
         this.author = author;
+        setAvailable(true);
     }
 
     public Book() {
+    }
+
+    public Person getBorrower() {
+        return borrower;
+    }
+
+    public void setBorrower(Person borrower) {
+        if (isAvailable()){
+            this.borrower = borrower;
+            setAvailable(false);
+        }
+        else {
+            System.out.println("book is not available");
+        }
+
     }
 
     public String getTitle() {
